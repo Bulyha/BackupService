@@ -15,13 +15,15 @@ public class BackUp {
     private  String Subject;
     private String dueDate;
     public String Status;
+    public String date;
 
-    public BackUp(Integer toDOItemId, String username, String subject, String dueDate, String status) {
+    public BackUp(Integer toDOItemId, String username, String subject, String dueDate, String status, String date) {
         this.toDOItemId = toDOItemId;
         this.username = username;
         Subject = subject;
         this.dueDate = dueDate;
         Status = status;
+        this.date = date;
     }
 
     public BackUp() {
@@ -74,4 +76,13 @@ public class BackUp {
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 }
+
