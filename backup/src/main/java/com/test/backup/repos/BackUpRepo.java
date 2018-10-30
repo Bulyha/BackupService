@@ -8,6 +8,4 @@ import java.util.List;
 
 public interface BackUpRepo extends JpaRepository<BackUp, Integer> {
     BackUp findByBackUpId(Integer backUpId);
-
-    //BackUp findFirstByBackUpId(Integer backUpId);
 }
