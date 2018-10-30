@@ -9,6 +9,9 @@ import com.test.backup.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @RestController
 public class AddNewBackupController {
     @Autowired
@@ -33,29 +36,31 @@ public class AddNewBackupController {
         }
         //Get the ToDos fields
         Integer userId = toDo.getUserId();
-        String dueDate = toDo.getDueDate();
-        String subject = toDo.getToDoSubject();
-        String done = toDo.getDone();
 
         User user = new User();
-        if(userId!=null){
-            user = userRepo.findByUserId(userId);
+        if(userId!=null && !userRepo.findByUserId(userId).equals(null)){
+           user = userRepo.findByUserId(userId);
         }else{
             System.out.println("There are no ToDos for this id");
         }
-        String username = "";
+        String username = "bob";
         if (user.getUserName() != null){
             username = user.getUserName();
         }else {
             username = "bob"; //default value, if there are no records in User table
         }
 
+        Date dateNow = new Date();
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("dd.MM.yyyy");
+        String date = String.valueOf(formatForDateNow.format(dateNow));
+
         //Insert them into BackUp`s fields
         BackUp b = new BackUp();
+        b.setDate(date);
         b.setToDOItemId(toDoItemId);
-        b.setDueDate(dueDate);
-        b.setStatus(done);
-        b.setSubject(subject);
+        b.setDueDate(toDo.getDueDate());
+        b.setStatus(toDo.getDone());
+        b.setSubject(toDo.getToDoSubject());
         b.setUsername(username);
         backUpRepo.save(b);
         return b;
