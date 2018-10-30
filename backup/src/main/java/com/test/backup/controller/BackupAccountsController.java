@@ -13,7 +13,8 @@ import java.util.Map;
 public class BackupAccountsController {
     @Autowired
     private BackUpRepo backUpRepo;
-
+    
+    // Return the backIds in format like "backupId" = <backupId>
     @GetMapping(path = "/accounts")
     public String accountsBackup(Map<String, Object> model){
 
