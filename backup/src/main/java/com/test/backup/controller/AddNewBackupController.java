@@ -33,8 +33,7 @@ public class AddNewBackupController {
     @GetMapping(path = "/addbackup/{id}")
     public @ResponseBody
     BackUp addNewBackUp
-            (//@RequestParam(required = false, defaultValue = "Bob") String username,
-             @PathVariable("id") Integer id) {
+            (@PathVariable("id") Integer id) {
         return backupService.NewBackUp(id);
     }
 }
