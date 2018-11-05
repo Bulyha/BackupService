@@ -1,6 +1,6 @@
 package com.test.backup.controller;
 
-import com.test.backup.User;
+import com.test.backup.domain.entity.User;
 import com.test.backup.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

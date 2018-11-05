@@ -1,13 +1,10 @@
 package com.test.backup;
 
-import com.test.backup.repos.BackUpRepo;
-import com.test.backup.repos.ToDoRepo;
+import com.test.backup.domain.entity.User;
 import com.test.backup.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 

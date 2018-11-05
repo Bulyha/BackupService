@@ -1,6 +1,6 @@
 package com.test.backup.controller;
 
-import com.test.backup.ToDo;
+import com.test.backup.domain.entity.ToDo;
 import com.test.backup.repos.ToDoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ public class AddNewToDoController {
     @Autowired
     private ToDoRepo toDoRepo;
     // This method add new ToDo.
-    // Parameters sends to the method via URL. The sequence looks like this: /addtodo/{toDoSubject}/{dueDate}/{done}
+    // Parameters sends to the method via URL. The sequence looks like this: /addtodo/{subject}/{dueDate}/{done}
     // Type the parameters in URL to create new ToDo
     @GetMapping(path = "/addtodo/{userId}/{toDoSubject}/{dueDate}/{done}")
     public @ResponseBody
