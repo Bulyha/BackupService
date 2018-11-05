@@ -15,8 +15,6 @@ public class BackupExportController {
     @Autowired
     private BackupService backupService;
 
-    public static final Logger logger = Logger.getLogger(BackupExportController.class.getName());
-
     // backupExport method return the content of a specified backup.
     // Just enter the id of the certain backup you need to export and method return you this backup
     @GetMapping(path = "/exports/{id}")
