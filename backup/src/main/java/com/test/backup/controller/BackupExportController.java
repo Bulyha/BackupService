@@ -11,8 +11,6 @@ import java.util.logging.Logger;
 @RestController
 public class BackupExportController {
     @Autowired
-    private BackUpRepo backUpRepo;
-    @Autowired
     private BackupService backupService;
 
     // backupExport method return the content of a specified backup.
