@@ -35,8 +35,6 @@ public class StackExchangeClient {
             logger.warning(String.valueOf(e));
         }
         List<DTOUser> response = rateResponse.getBody();
-        //String tr = response.get(0).getEmail();
-        //DTOUser responseEntity = restTemplate.getForObject("http://localhost:9000/users/1", DTOUser.class);
         try {
 
         } catch (Exception e) {
@@ -45,22 +43,7 @@ public class StackExchangeClient {
         return response;
     }
 
-
     public List<ToDo> getToDo(){
-//        List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
-//        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
-//        converter.setSupportedMediaTypes(Collections.singletonList(MediaType.ALL));
-//        messageConverters.add(converter);
-//        restTemplate.setMessageConverters(messageConverters);
-        //responseEntity = responseEntity.substring("[".length(),responseEntity.length()-"]".length());
-        //String go = responseEntity.substring(1,63);
-
-        //        Type type = new TypeToken<List<DTOUser>>(){}.getType();
-//        Gson gson = new GsonBuilder()
-//                .setLenient()
-//                .disableHtmlEscaping()
-//                .create();
-//        List<DTOUser> reponse = gson.fromJson(responseEntity, type);
         String url = "http://localhost:9000";
         ToDos response = null;
         try {
@@ -68,7 +51,6 @@ public class StackExchangeClient {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-        //return Arrays.asList(response.getBody());
         return response.getItems();
     }
 }
