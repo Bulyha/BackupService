@@ -18,12 +18,6 @@ import java.util.logging.Logger;
 @RestController
 public class BackupAccountsController {
     @Autowired
-    private BackUpRepo backUpRepo;
-    @Autowired
-    private AccountsBackupRepo accountsBackupRepo;
-    @Autowired
-    private UserService userService;
-    @Autowired
     private BackupService backupService;
 
     public static final Logger logger = Logger.getLogger(BackupAccountsController.class.getName());
