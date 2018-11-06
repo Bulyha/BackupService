@@ -20,8 +20,6 @@ public class BackupAccountsController {
     @Autowired
     private BackupService backupService;
 
-    public static final Logger logger = Logger.getLogger(BackupAccountsController.class.getName());
-
     // Return the backIds in format like "backupId" = <backupId>
     @GetMapping(path = "/backups_acc")
     public String accountsBackup(Map<String, Object> model){
