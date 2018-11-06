@@ -25,13 +25,6 @@ public class ToDo {
         this.done = done;
     }
 
-    /*    public ToDo(Integer toDoItemId, String subject, String dueDate, String done) {
-        this.toDoItemId = toDoItemId;
-        this.subject = subject;
-        dueDate = dueDate;
-        this.done = done;
-    }*/
-
     public Integer getToDoItemId() {
         return toDoItemId;
     }
