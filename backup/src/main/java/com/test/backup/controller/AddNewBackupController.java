@@ -22,11 +22,7 @@ import java.util.List;
 @RestController
 public class AddNewBackupController {
     @Autowired
-    private BackUpRepo backUpRepo;
-    @Autowired
     private BackupService backupService;
-    @Autowired
-    private UserService userService;
 
     // Adding new backup item. This method get the Todo`s fields and set them into backup`s fields
     // Return the list of backups with new backup
