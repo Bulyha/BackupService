@@ -1,6 +1,5 @@
 package com.test.backup.service;
 
-import com.test.backup.controller.BackupAccountsController;
 import com.test.backup.domain.DTOToDo;
 import com.test.backup.domain.DTOUser;
 import com.test.backup.domain.entity.AccountsBackup;
@@ -8,8 +7,6 @@ import com.test.backup.domain.entity.BackUp;
 import com.test.backup.domain.entity.enums.Status;
 import com.test.backup.repos.AccountsBackupRepo;
 import com.test.backup.repos.BackUpRepo;
-import com.test.backup.repos.ToDoRepo;
-import com.test.backup.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,7 +49,7 @@ public class BackupService {
         BackUp b = new BackUp();
         b.setDate(date);
         b.setUserId(dtoUser.getUserId());
-        b.setStatus(String.valueOf(Status.OK));
+        b.setStatus(String.valueOf(Status.IN_PROGRESS));
         b.setEmail(dtoUser.getEmail());
         b.setTodos(String.valueOf(todos));
         b.setUsername(dtoUser.getUsername());
@@ -117,14 +114,18 @@ public class BackupService {
     @GetMapping(path = "/backups")
     public String backupList(
             Map<String, Object> model) {
-
+        String out = "";
+        String model_out = "";
         List<BackUp> backUps = backUpRepo.findAll();
-
         for (BackUp i: backUps) {
-            model.put("Backup '"+String.valueOf(i.getBackUpId())+"' ", i.getBackUpId());
-            model.put("Date ", i.getDate());
-            model.put("Status " , i.getStatus());
+            i.setStatus(String.valueOf(Status.OK));
         }
-        return "'"+model+"'";
+        for (BackUp i: backUps) {
+            model_out = " Backup '" +String.valueOf(i.getBackUpId())+"':" +String.valueOf(i.getBackUpId())+"  "
+                    +" "+String.valueOf(" Date: " +i.getDate())+"  "
+            +" "+String.valueOf(" Status: " +i.getStatus())+"  ";
+            out = out + model_out;
+        }
+        return out;
     }
 }
