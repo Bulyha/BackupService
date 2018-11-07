@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -105,6 +108,32 @@ public class BackupService {
         }else{
             logger.warning("There are no backups for this id");
         }
+
+        PrintWriter pw = null;
+        try {
+            pw = new PrintWriter(new File("test.csv"));
+        } catch (FileNotFoundException e) {
+            logger.warning(String.valueOf(e));
+        }
+        String ColumnNamesList = "BackupId'\n'Username'\n'Email'\n'Todos'\n'Date'\n'Status";
+        StringBuilder sb = new StringBuilder();
+        sb.append(ColumnNamesList +"\n");
+
+        sb.append(backUp.getBackUpId()+"\n");
+
+        sb.append(backUp.getUsername()+"\n");
+
+        sb.append(backUp.getEmail()+"\n");
+
+        sb.append(backUp.getTodos()+"\n");
+
+        sb.append(backUp.getDate()+"\n");
+
+        sb.append(backUp.getStatus()+"\n");
+
+        pw.write(sb.toString());
+        pw.close();
+        logger.info("CSV file rewrite");
         return backUp;
     }
 
