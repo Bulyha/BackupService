@@ -115,21 +115,37 @@ public class BackupService {
         } catch (FileNotFoundException e) {
             logger.warning(String.valueOf(e));
         }
-        String ColumnNamesList = "BackupId'\n'Username'\n'Email'\n'Todos'\n'Date'\n'Status";
         StringBuilder sb = new StringBuilder();
-        sb.append(ColumnNamesList +"\n");
+        
+        sb.append("BackupId:");
+        sb.append(',');
+        sb.append(backUp.getBackUpId());
+        sb.append('\n');
 
-        sb.append(backUp.getBackUpId()+"\n");
+        sb.append("Username:");
+        sb.append(',');
+        sb.append(backUp.getUsername());
+        sb.append('\n');
 
-        sb.append(backUp.getUsername()+"\n");
+        sb.append("Email:");
+        sb.append(',');
+        sb.append(backUp.getEmail());
+        sb.append('\n');
 
-        sb.append(backUp.getEmail()+"\n");
+        sb.append("Todos:");
+        sb.append(',');
+        sb.append(backUp.getTodos());
+        sb.append('\n');
 
-        sb.append(backUp.getTodos()+"\n");
+        sb.append("Date:");
+        sb.append(',');
+        sb.append(backUp.getDate());
+        sb.append('\n');
 
-        sb.append(backUp.getDate()+"\n");
-
-        sb.append(backUp.getStatus()+"\n");
+        sb.append("Status:");
+        sb.append(',');
+        sb.append(backUp.getStatus());
+        sb.append('\n');
 
         pw.write(sb.toString());
         pw.close();
