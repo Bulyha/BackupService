@@ -26,15 +26,15 @@ public class StackExchangeClient {
     public static final Logger logger = Logger.getLogger(StackExchangeClient.class.getName());
 
     public List<DTOUser> getUsers(String url){
-        ResponseEntity<List<DTOUser>> rateResponse = null;
+        ResponseEntity<List<DTOUser>> listResponseEntity = null;
         try {
-            rateResponse = restTemplate.exchange(new URI(url),
+            listResponseEntity = restTemplate.exchange(new URI(url),
                     HttpMethod.GET, null, new ParameterizedTypeReference<List<DTOUser>>() {
                     });
         } catch (URISyntaxException e) {
             logger.warning(String.valueOf(e));
         }
-        List<DTOUser> response = rateResponse.getBody();
+        List<DTOUser> response = listResponseEntity.getBody();
         try {
 
         } catch (Exception e) {
